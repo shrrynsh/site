@@ -1,0 +1,40 @@
+---
+layout: default
+title: Blog
+description: "Thoughts, tutorials, and notes on ML, DL, and software development."
+---
+
+<section class="section blog-page">
+    <div class="section-inner">
+        <h1 class="section-title">Blog</h1>
+        <p class="blog-subtitle">Thoughts, tutorials, and notes on ML, DL, and software development.</p>
+        <div class="blog-list">
+            {% for post in paginator.posts %}
+            <a href="{{ post.url | prepend: site.baseurl }}" class="blog-card-full">
+                <div class="blog-card-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        <i data-lucide="calendar"></i> {{ post.date | date: "%B %d, %Y" }}
+                    </time>
+                </div>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content | strip_html | truncatewords: 40 }}</p>
+                <span class="read-more">Read more <i data-lucide="arrow-right"></i></span>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if paginator.total_pages > 1 %}
+        <div class="pagination">
+            {% if paginator.previous_page %}
+            <a href="{% if paginator.previous_page == 1 %}{{ site.baseurl }}/blog{% else %}{{ site.baseurl }}/blog/page{{ paginator.previous_page }}{% endif %}"
+                class="btn btn-outline">&laquo; Newer</a>
+            {% endif %}
+            <span class="page-info">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+            {% if paginator.next_page %}
+            <a href="{{ site.baseurl }}/blog/page{{ paginator.next_page }}" class="btn btn-outline">Older &raquo;</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</section>

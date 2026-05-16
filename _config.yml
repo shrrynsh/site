@@ -1,20 +1,24 @@
 # Site settings
-title: Monochrome | A minimal, responsive Jekyll blog theme
-description: "A minimal, responsive, ready to use blog template, built with Jekyll."
+title: Shreyansh | ML & Deep Learning
+description: "Personal homepage of Shreyansh — Machine Learning & Deep Learning enthusiast."
 url: "https://shrrynsh.github.io"
+baseurl: /site
+
 author:
-  name: "The Review Index"
-  email: "dyutibarma@gmail.com"
-  url: "https://thereviewindex.com"
+  name: "Shreyansh"
+  email: ""
+  tagline: "ML & Deep Learning Enthusiast"
+  bio: "Passionate about building intelligent systems with Machine Learning and Deep Learning. Exploring the frontiers of AI to solve real-world problems."
+  github: "shrrynsh"
+  linkedin: ""
 
 # Build settings
-baseurl: /site # Must match your GitHub repo name
 markdown: kramdown
 source: .
 destination: ./_site
 permalink: /:title
-paginate: 8
-paginate_path: /page:num/
+paginate: 6
+paginate_path: /blog/page:num/
 
 # Default values
 defaults:
@@ -31,9 +35,34 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-version: "1.0.0"
+version: "2.0.0"
 
-# Options
-custom_header: false
-custom_nav_footer: false
-reverse: false
+# Skills
+skills:
+  - name: "Python"
+    level: 90
+  - name: "Machine Learning"
+    level: 85
+  - name: "Deep Learning"
+    level: 80
+  - name: "PyTorch"
+    level: 75
+  - name: "TensorFlow"
+    level: 70
+  - name: "Data Science"
+    level: 85
+
+# Projects
+projects:
+  - title: "Neural Network from Scratch"
+    description: "Built a fully connected neural network from scratch using NumPy, implementing backpropagation and gradient descent."
+    tags: ["Python", "NumPy", "Deep Learning"]
+    link: "#"
+  - title: "Image Classifier"
+    description: "CNN-based image classification model trained on custom datasets with data augmentation and transfer learning."
+    tags: ["PyTorch", "CNN", "Computer Vision"]
+    link: "#"
+  - title: "Sentiment Analysis"
+    description: "NLP pipeline for sentiment analysis using transformer-based models with fine-tuning on domain-specific data."
+    tags: ["NLP", "Transformers", "Python"]
+    link: "#"

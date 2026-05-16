@@ -1,13 +1,17 @@
 ---
 layout: default
 ---
-<article id="post-page">
-	<h2>{%if page.header %}{{ page.header }}{% else %}{{ page.title }}{% endif %}</h2>		
-	<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-	<div class="content">
-
+<article class="post-full">
+	<div class="post-header">
+		<a href="{{ site.baseurl }}/blog" class="back-link">
+			<i data-lucide="arrow-left"></i> Back to Blog
+		</a>
+		<h1>{{ page.title }}</h1>
+		<time datetime="{{ page.date | date_to_xmlschema }}">
+			<i data-lucide="calendar"></i> {{ page.date | date: "%B %d, %Y" }}
+		</time>
+	</div>
+	<div class="post-content content">
 		{{ content }}
-		
 	</div>
 </article>
-

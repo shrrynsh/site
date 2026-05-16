@@ -1,41 +1,88 @@
-var normal = document.getElementById("nav-menu");
-var reverse = document.getElementById("nav-menu-left");
+// Initialize Lucide icons
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 
-var icon = normal !== null ? normal : reverse;
+  // --- Mobile menu toggle ---
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
 
-// Toggle the "menu-open" % "menu-opn-left" classes
-function toggle() {
-	  var navRight = document.getElementById("nav");
-	  var navLeft = document.getElementById("nav-left");
-	  var nav = navRight !== null ? navRight : navLeft;
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', function () {
+      menuBtn.classList.toggle('menu-open');
+      mobileNav.classList.toggle('nav-open');
+    });
 
-	  var button = document.getElementById("menu");
-	  var site = document.getElementById("wrap");
-	  
-	  if (nav.className == "menu-open" || nav.className == "menu-open-left") {
-	  	  nav.className = "";
-	  	  button.className = "";
-	  	  site.className = "";
-	  } else if (reverse !== null) {
-	  	  nav.className += "menu-open-left";
-	  	  button.className += "btn-close";
-	  	  site.className += "fixed";
-	  } else {
-	  	  nav.className += "menu-open";
-	  	  button.className += "btn-close";
-	  	  site.className += "fixed";
-	    }
-	}
+    // Close menu on link click
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menuBtn.classList.remove('menu-open');
+        mobileNav.classList.remove('nav-open');
+      });
+    });
+  }
 
-// Ensures backward compatibility with IE old versions
-function menuClick() {
-	if (document.addEventListener && icon !== null) {
-		icon.addEventListener('click', toggle);
-	} else if (document.attachEvent && icon !== null) {
-		icon.attachEvent('onclick', toggle);
-	} else {
-		return;
-	}
-}
+  // --- Skill bar animation on scroll ---
+  var skillFills = document.querySelectorAll('.skill-fill');
+  if (skillFills.length > 0) {
+    var skillObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
 
-menuClick();
+    skillFills.forEach(function (bar) {
+      skillObserver.observe(bar);
+    });
+  }
+
+  // --- Fade-in sections on scroll ---
+  var sections = document.querySelectorAll('.section:not(.hero)');
+  if (sections.length > 0) {
+    sections.forEach(function (s) { s.classList.add('fade-section'); });
+
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(function (s) { sectionObserver.observe(s); });
+  }
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href*="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var href = this.getAttribute('href');
+      var hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
+
+      var hash = href.substring(hashIndex);
+      var target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, null, hash);
+      }
+    });
+  });
+
+  // --- Header scroll effect ---
+  var header = document.getElementById('site-header');
+  if (header) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+  }
+});

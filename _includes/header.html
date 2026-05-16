@@ -1,26 +1,25 @@
-<header id="header" class="parent justify-spaceBetween">
-  <div class="inner w100 relative">
-    <span class="f-left">  
-      <a href="{{ site.baseurl }}/">
-        <h1>
-          <span>mono</span>chrome
-        </h1>
-      </a>
-    </span>
-    <span id="nav-links" class="absolute right bottom">
-      <!-- Nav pages -->
-	    {% for page in site.pages %}
-	      {% if page.layout == "page" %}
-	        <a href="{% if site.baseurl == "/" %}{{ page.url }}{% else %}{{ page.url | prepend: site.baseurl }}{% endif %}" title="{{ page.title }}">{{ page.title }}</a>
-	      {% endif %}
-	    {% endfor %}
-      
-      <!-- Nav links -->
-	    {% include link.html %}
-
-    </span>
+<header id="site-header">
+  <div class="header-inner">
+    <a href="{{ site.baseurl }}/" class="logo">
+      <span class="logo-accent">&lt;</span>{{ site.author.name }}<span class="logo-accent">/&gt;</span>
+    </a>
+    <nav id="desktop-nav">
+      <a href="{{ site.baseurl }}/#about">About</a>
+      <a href="{{ site.baseurl }}/#skills">Skills</a>
+      <a href="{{ site.baseurl }}/#projects">Projects</a>
+      <a href="{{ site.baseurl }}/blog">Blog</a>
+      <a href="{{ site.baseurl }}/#contact" class="nav-cta">Contact</a>
+    </nav>
+    <button id="mobile-menu-btn" aria-label="Toggle menu">
+      <span class="hamburger"></span>
+    </button>
   </div>
+  <!-- Mobile nav -->
+  <nav id="mobile-nav">
+    <a href="{{ site.baseurl }}/#about">About</a>
+    <a href="{{ site.baseurl }}/#skills">Skills</a>
+    <a href="{{ site.baseurl }}/#projects">Projects</a>
+    <a href="{{ site.baseurl }}/blog">Blog</a>
+    <a href="{{ site.baseurl }}/#contact">Contact</a>
+  </nav>
 </header>
-
-
-
