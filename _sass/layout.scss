@@ -1,103 +1,35 @@
 /* ===== LAYOUT ===== */
 
 /* --- Header --- */
-#site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid $border-color;
-  transition: all 0.3s ease;
+header {
+  padding: 2rem 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .header-inner {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 1.5rem;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.logo {
-  font-size: 1.2em;
+.header-link {
   font-weight: 700;
-  letter-spacing: -0.5px;
-  color: $text-primary !important;
-  .logo-accent {
-    color: $accent-primary;
-    font-weight: 400;
-  }
 }
 
-#desktop-nav {
-  display: none;
-  gap: 2rem;
-  align-items: center;
-
-  @media (min-width: 768px) {
-    display: flex;
-  }
-
-  a {
-    font-size: 0.9em;
-    font-weight: 500;
-    color: $text-secondary;
-    position: relative;
-    padding: 0.3em 0;
-    transition: color 0.2s ease;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: $accent-gradient;
-      transition: width 0.3s ease;
-    }
-
-    &:hover {
-      color: $text-primary;
-      &::after { width: 100%; }
-    }
-  }
-
-  .nav-cta {
-    background: $accent-gradient;
-    color: #fff !important;
-    padding: 0.5em 1.2em;
-    border-radius: 8px;
-    font-weight: 600;
-    &::after { display: none; }
-    &:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-  }
+/* --- Footer --- */
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid #ddd;
+  margin-top: 4rem;
+  text-align: center;
+  color: #999;
+  font-size: 0.9em;
 }
 
-#mobile-menu-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 110;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
+/* --- Main content --- */
+main {
+  padding: 2rem 0;
 }
+
 
 .hamburger {
   width: 22px;
