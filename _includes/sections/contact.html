@@ -1,0 +1,30 @@
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="section">
+    <div class="section-inner contact-section">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="contact-desc">
+            Interested in collaborating or just want to say hello? Feel free to reach out!
+        </p>
+        <div class="contact-links">
+            {% if site.author.github %}
+            <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener" class="contact-card">
+                <i data-lucide="github"></i>
+                <span>GitHub</span>
+            </a>
+            {% endif %}
+            {% if site.author.linkedin %}
+            <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener"
+                class="contact-card">
+                <i data-lucide="linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            {% endif %}
+            {% if site.author.email and site.author.email != "" %}
+            <a href="mailto:{{ site.author.email }}" class="contact-card">
+                <i data-lucide="mail"></i>
+                <span>Email</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+<!-- ===== BLOG PREVIEW ===== -->
+<section id="blog-preview" class="section section-alt">
+    <div class="section-inner">
+        <h2 class="section-title">Latest Posts</h2>
+        <div class="blog-grid">
+            {% for post in site.posts limit:3 %}
+            <a href="{{ post.url | prepend: site.baseurl }}" class="blog-card">
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                    <i data-lucide="calendar"></i> {{ post.date | date: "%b %d, %Y" }}
+                </time>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content | strip_html | truncatewords: 25 }}</p>
+                <span class="read-more">Read more <i data-lucide="arrow-right"></i></span>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="section-cta">
+            <a href="{{ site.baseurl }}/blog" class="btn btn-outline">View All Posts</a>
+        </div>
+    </div>
+</section>

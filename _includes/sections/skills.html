@@ -1,0 +1,19 @@
+<!-- ===== SKILLS SECTION ===== -->
+<section id="skills" class="section section-alt">
+    <div class="section-inner">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            {% for skill in site.skills %}
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <span class="skill-percent">{{ skill.level }}%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="--fill-width: {{ skill.level }}%"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

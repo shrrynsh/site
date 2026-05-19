@@ -1,0 +1,27 @@
+<!-- ===== PROJECTS SECTION ===== -->
+<section id="projects" class="section">
+    <div class="section-inner">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            {% for project in site.projects %}
+            <div class="project-card">
+                <div class="project-icon">
+                    <i data-lucide="folder-open"></i>
+                </div>
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <div class="project-tags">
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% if project.link and project.link != "#" %}
+                <a href="{{ project.link }}" class="project-link" target="_blank" rel="noopener">
+                    <i data-lucide="external-link"></i>
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
