@@ -30,13 +30,13 @@ $text-dark-color: #000000;
 /*- Base settings -*/
 
 html {
-        background-color: $background-color;
-        font-size: 16px;
-        @media (min-width: 940px) {
-                font-size: 18px;
-        }
-        line-height: 1.8;
-        color: $text-color;
+	background-color: $background-color;
+	font-size: 16px;
+	@media (min-width: 940px) {
+		font-size: 18px;
+	}
+	line-height: 1.8;
+	color: $text-color;
 }
 
 body {
@@ -47,13 +47,13 @@ body {
 
 /*- Link -*/
 a {
-        color: $text-color;
-        text-decoration: none;
-        font-weight: 700;
-        &:hover,
-        &:focus {
-                color: darken($text-color, 5%);
-        }
+	color: $text-color;
+	text-decoration: none;
+	font-weight: 700;
+	&:hover,
+	&:focus {
+		color: darken($text-color, 5%);
+	}
 }
 
 /* Common classes */
@@ -81,59 +81,3 @@ a {
 .bottom { bottom: 0 }
 .right { right: 0 }
 .left { left: 0 }
-
-    font-size: 18px;
-  }
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-weight: 400;
-  background-color: $bg-primary;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/*- Ambient background glow -*/
-.ambient-glow {
-  position: fixed;
-  top: -40%;
-  left: -20%;
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(ellipse, rgba(108, 99, 255, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/*- Links -*/
-a {
-  color: $text-primary;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  &:hover {
-    color: $accent-primary;
-  }
-}
-
-/*- Selection -*/
-::selection {
-  background: rgba(108, 99, 255, 0.3);
-  color: #fff;
-}
-
-/*- Scrollbar -*/
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: $bg-primary;
-}
-::-webkit-scrollbar-thumb {
-  background: $text-muted;
-  border-radius: 4px;
-  &:hover {
-    background: $text-secondary;
-  }
-}
